@@ -1,2 +1,2 @@
 # CameraAlbum
-Take photo and display or choose pic from Album
+Take a photo or choose picture from Album then display on the screen
