@@ -33,9 +33,9 @@ public class Binary1 {
         }
         // 获取直方图
         int[] histoGram = new int[256];
-        for (int i = 0; i < width; i++) {
+        for (int i = 0; i < height; i++) {
             int tr = 0;
-            for (int j = 0; j < height; j++) {
+            for (int j = 0; j < width; j++) {
                 int x = i * width + j;
                 tr = (inPixels[x] >> 16) & 0xff;
                 histoGram[tr]++;
