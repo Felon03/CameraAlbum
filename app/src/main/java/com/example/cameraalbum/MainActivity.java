@@ -26,7 +26,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import com.example.cameraalbum.Binary;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -192,7 +192,9 @@ public class MainActivity extends AppCompatActivity {
             Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
             //// TODO: 2017-1-3
             Bitmap binBmp = Binary.Binarization(bitmap);
-            picture.setImageBitmap(binBmp);
+            Bitmap binBmp1 = new  Binary1().Binary(bitmap);
+            picture.setImageBitmap(binBmp1);
+//            picture.setImageBitmap(binBmp);
 //            picture.setImageBitmap(bitmap);
         } else {
             Toast.makeText(this, "failed to get image", Toast.LENGTH_SHORT).show();
