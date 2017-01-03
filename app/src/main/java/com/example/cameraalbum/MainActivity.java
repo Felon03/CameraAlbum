@@ -26,6 +26,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import com.example.cameraalbum.Binary;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -115,7 +116,10 @@ public class MainActivity extends AppCompatActivity {
                         // 将拍摄的照片显示出来
                         Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver()
                                 .openInputStream(imageUri));
-                        picture.setImageBitmap(bitmap);
+                        Bitmap binBmp = Binary.Binarization(bitmap);
+                        // TODO: 2017-1-3
+//                        picture.setImageBitmap(bitmap);
+                        picture.setImageBitmap(binBmp);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
@@ -186,7 +190,10 @@ public class MainActivity extends AppCompatActivity {
     private void displayImage(String imagePath) {
         if (imagePath != null) {
             Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
-            picture.setImageBitmap(bitmap);
+            //// TODO: 2017-1-3
+            Bitmap binBmp = Binary.Binarization(bitmap);
+            picture.setImageBitmap(binBmp);
+//            picture.setImageBitmap(bitmap);
         } else {
             Toast.makeText(this, "failed to get image", Toast.LENGTH_SHORT).show();
         }
