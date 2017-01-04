@@ -14,7 +14,7 @@ import android.util.Log;
 class Binary {
     private static final String TAG = "Binary";
 
-    static Bitmap Binarization(Bitmap bitmap) {
+   public static Bitmap Binarization(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         int area = width * height;
