@@ -64,7 +64,7 @@ public class Binary1 {
 
 
     public static int getMinThreshold(int[] histGram) {
-        int Y;
+        int Y, Index;
         int iter = 0;
         double[] histGramC = new double[256];
         double[] histGramCC = new double[256];
@@ -85,6 +85,11 @@ public class Binary1 {
             iter++;
             if (iter >= 1000) return -1;        // 直方图无法平滑为双峰的，返回错误代码
         }
+        // 阈值为两峰值的平均值
+//        int[] Peak = new int[2];
+//        for (Y = 1, Index = 0; Y < 255; Y++)
+//            if (histGramCC[Y - 1] < histGramCC[Y] && histGramCC[Y + 1] < histGramCC[Y]) Peak[Index++] = Y - 1;
+//        return ((Peak[0] + Peak[1]) / 2);
         // 阈值即为两峰之间的最小值
         boolean peakFound = false;
         for (Y = 1; Y < 255; Y++) {
