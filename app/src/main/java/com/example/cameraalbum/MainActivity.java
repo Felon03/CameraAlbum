@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
             Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
             //// TODO: 2017-1-3
             Bitmap binBmp = Binary.Binarization(bitmap);
-            Bitmap binBmp1 = new  Binary1().Binary(bitmap);
+            Bitmap binBmp1 = Binary1.Binary(bitmap);
             picture.setImageBitmap(binBmp1);
 //            picture.setImageBitmap(binBmp);
 //            picture.setImageBitmap(bitmap);
