@@ -13,7 +13,7 @@ public class Binary1 {
 
     private static final String TAG = "Binary1";
 
-    public Bitmap Binary(Bitmap bitmap) {
+    public static Bitmap Binary(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         int gray[][] = new int[width][height];
