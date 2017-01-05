@@ -11,7 +11,7 @@ import android.util.Log;
  * Email  Freedom.JFL@Live.com
  */
 
-class Binary {
+public class Binary {
     private static final String TAG = "Binary";
 
    public static Bitmap Binarization(Bitmap bitmap) {
