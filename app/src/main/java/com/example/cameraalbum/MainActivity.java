@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -116,10 +117,15 @@ public class MainActivity extends AppCompatActivity {
                         // 将拍摄的照片显示出来
                         Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver()
                                 .openInputStream(imageUri));
+                        /* 旋转图片*/
+                        Matrix matrix = new Matrix();
+                        matrix.postRotate(90);
                         Bitmap binBmp = Binary.Binarization(bitmap);
+                        Bitmap rotaBitmap = Bitmap.createBitmap(binBmp, 0, 0,
+                                bitmap.getWidth(), bitmap.getHeight(), matrix, true);
                         // TODO: 2017-1-3
 //                        picture.setImageBitmap(bitmap);
-                        picture.setImageBitmap(binBmp);
+                        picture.setImageBitmap(rotaBitmap);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
@@ -190,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
     private void displayImage(String imagePath) {
         if (imagePath != null) {
             Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
+
             //// TODO: 2017-1-3
 //            Bitmap binBmp = Binary.Binarization(bitmap);    // OSTU
             Bitmap binBmp1 = Binary1.Binary(bitmap);            // 谷底最小值
