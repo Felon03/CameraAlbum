@@ -104,9 +104,9 @@ public class Binary {
             }
         }
 
-        Bitmap temp = Bitmap.createBitmap(width,height,Bitmap.Config.ARGB_8888);
-        temp.setPixels(pix,0, width,0,0,width,height);
-        return temp;
+        Bitmap tempBitmap = Bitmap.createBitmap(width,height,Bitmap.Config.ARGB_8888);
+        tempBitmap.setPixels(pix,0, width,0,0,width,height);
+        return tempBitmap;
     }
 
 

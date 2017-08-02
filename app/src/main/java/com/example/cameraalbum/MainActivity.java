@@ -119,10 +119,12 @@ public class MainActivity extends AppCompatActivity {
                                 .openInputStream(imageUri));
                         /* 旋转图片*/
                         Matrix matrix = new Matrix();
-                        matrix.postRotate(90);
-                        Bitmap binBmp = Binary.Binarization(bitmap);
-                        Bitmap rotaBitmap = Bitmap.createBitmap(binBmp, 0, 0,
+                        matrix.postRotate(0);
+                        matrix.postScale(0.75f,0.75f);
+//                        Bitmap binBmp = Binary.Binarization(bitmap);
+                        Bitmap rotaBitmap = Bitmap.createBitmap(bitmap, 0, 0,
                                 bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+//                        Bitmap binBmp = Binary.Binarization(rotaBitmap);
                         // TODO: 2017-1-3
 //                        picture.setImageBitmap(bitmap);
                         picture.setImageBitmap(rotaBitmap);
@@ -196,11 +198,15 @@ public class MainActivity extends AppCompatActivity {
     private void displayImage(String imagePath) {
         if (imagePath != null) {
             Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
+            Matrix matrix = new Matrix();
+            matrix.postScale(0.5f, 0.5f);
+            Bitmap scaledBitmap = Bitmap.createBitmap(bitmap, 0, 0,
+                    bitmap.getWidth(), bitmap.getHeight(), matrix, true);
 
             //// TODO: 2017-1-3
 //            Bitmap binBmp = Binary.Binarization(bitmap);    // OSTU
-            Bitmap binBmp1 = Binary1.Binary(bitmap);            // 谷底最小值
-            picture.setImageBitmap(binBmp1);
+//            Bitmap binBmp1 = Binary1.Binary(scaledBitmap);            // 谷底最小值
+            picture.setImageBitmap(scaledBitmap);
 //            picture.setImageBitmap(binBmp);
 //            picture.setImageBitmap(bitmap);
         } else {
